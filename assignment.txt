@@ -1,0 +1,221 @@
+ACTIVITY 1 
+def total_sum(arr):
+    total = 0
+    for i in arr:
+        total += i
+    return total 
+
+total = 0: Assignment takes constant time O(1)
+
+for in arr: iteration takes time O(n)
+
+total += i: addition and assignment take constant
+amount of time for each iteration, O(1)
+
+return total also takes a constant amount of time, O(1).
+
+Since the time taken is dominated by the loop, which executes n times,
+with a constant amount of work in each iteration.
+
+Therefore, there is a linear relationship between the execution time
+and the input size.
+The time complexity is O(n)
+
+ACTIVITY 2:
+ ----Head 
+ |     |
+ |     X
+ |    -----    -----    -----    -----
+ | |->| A |--->| B |--->| C |--->| D |--->NULL
+ | |  -----    -----    -----    -----
+ | |----------|
+ |    -----   |
+ |--->| E |---|
+      -----
+
+    INSERTION AT THE HEAD OF A SINGLY LINKED LIST 
+
+
+TASKS 
+4a. Difference between arrays and linked lists
+Arrays store elements in contiguous memory locations, allowing 
+direct access with an index but having a fixed size.
+Linked Lists store elements in non-contiguous nodes connected by pointers,
+allowing flexible size but slower access because you must traverse the list 
+sequentially. 
+
+4b. Time complexity insertion of a linked list 
+Insertion/Deletion at the Head:
+Singly, Doubly, and Circular Linked Lists: O(1)
+This is because you only need to update a few pointers (head pointer and potentially the new node's next pointer).
+
+Insertion/Deletion at the Tail:
+Singly Linked List: O(n)
+Requires traversing the entire list to find the second-to-last node to update its next pointer.
+Doubly and Circular Linked Lists: O(1)
+With a tail pointer, you can directly access the last node and update pointers in constant time.
+
+Insertion/Deletion at a Specific Position (other than head/tail):
+Singly, Doubly, and Circular Linked Lists: O(n)
+Requires traversing the list to find the desired position before performing the insertion or deletion.
+
+
+DISCUSSION QUESTIONS
+1. Key differences between Primitive data types and ADTs 
+  Primitive Data Types                 |Abstract Data Types(ADTs)
+---------------------------------------|------------------------------------------------
+i Built into the language e.g int, char| User-defined or conceptual models
+  , float.                             |e.g Stack, Queue, List 
+ii Have predefined operations          |Specify what operations can be performed,
+                                       |not how they are implemented.
+iii Store simple, single values        |Can store multiple values 
+iv Cannot be customized                |More complex and customizable
+
+
+2. Why are arrays considered static, and linked lists dynamic 
+-Arrays are static because their size is fixed at creation and cannot 
+grow or shrink at runtime 
+-Linked lists are dynamic because nodes can be created or deleted as 
+needed during execution, allowing the structure to expand or contract.
+
+3. In what situations would you prefer a linked list to an array?
+- You need frequent insertions and deletions, especially in the middle 
+of a list
+- Memory availability is fragmented(non-contiguous)
+- You don't know the number of elements in advance 
+- You want a data structure that grows/shrinks effectively 
+
+4. Real World Examples 
+a. Stack
+- Undo operations in Ms Word or Photoshop
+- Browser history(back button)
+- Call stack in programming languages 
+- Memory Register 
+
+b. Queue
+- Print queue for documents sent to a printer.
+- Task scheduling in Operating Systems 
+- Message queue
+- BFS traversal
+- Tree traversal
+
+c. Linked List 
+- Music playlist where tracks are linked and you can insert/remove songs
+- Image viewer with next/previous navigation 
+- Navigation systems storing paths as connected nodes.
+- Browser forward/backward navigation (variants used linked structures) 
+
+            CLASS ASSIGNMENTS 
+Assignment 1 
+Give 5 differences between stack and queue 
+Stack                                  |         Queue
+---------------------------------------|----------------------------------------
+1. Operates on the Last In First Out   |Operates on the First In First Out(FIFO)
+(LIFO)principle.                       |principle
+2. Both insertion(push) and deletion   |Insertion(enqueue) occurs at the end, called
+(pop) occur at the same end, called the|the rear, and deletion(dequeue) occurs at the 
+top.                                   |other end called the front.
+3. Typically managed with a single     |Managed with two pointers, front(pointing to
+pointer(top) which points to the most  | the item to be removed next) and rear(pointing
+recently added element.                |to where the next element will be added)
+4.Commonly used for scenarios requiring|Commonly used for scenarios requiring FIFO behavior,
+LIFO behavior such as:                 |such as:
+-Function call management(Call Stack)  |-Task Scheduling in Operating Systems 
+-Undo/Redo functionality in            |-Print queue management
+applications                           |- Breadth-First search in graphs 
+-Expression evaluation                 |- Handling asynchronous communication or message 
+- Back tracking algorithms             |queries.
+5. Generally, there are more distinct  |Has several variants, including circular queues, priority 
+variants of a basic stack.             |queues, and double-ended queues.
+
+
+Assignment 2 
+Time complexity of stack and queue 
+Stack operations
+push(add an element): O(1) 
+pop(remove an element): O(1)
+peek/top(view top element): O(1)
+isEmpty: 0(1)
+isFull: O(1)
+
+Queue Operations 
+enqueue(adding an element): O(1)
+dequeue(removing an element): O(1)
+front/peek(accessing the front element): O(1)
+rear(accessing the rear element): O(1)
+isEmpty: O(1)
+isFull: O(1)
+
+Assignment 3
+Explain algorithm complexities in terms of accuracy, space, and time 
+1. Accuracy: 
+Accuracy relates to whether an algorithm produces the correct and required output for all valid inputs. 
+Accuracy is a measure of correctness, not efficiency. 
+An algorithm must first be correct(accurate) to be considered a viable solution to a problem.
+
+2. Space Complexity:
+Space Complexity measures the amount of memory(space) an algorithm requires to run to completion, also expressed using Big O notation.
+It considers both the memory needed for the input data and the auxiliary space(temporary space) required during execution,
+such as extra variables or recursive call stacks.
+Purpose:
+It is essential for ensuring an algorithm runs within the memory constraints of a given system,
+especially in environments with limited resources like embedded devices.
+Example: A bubble sort is an in-place sorting algorithm with O(1) space complexity, constant space, while some recursive 
+algorithms may have O(n) space complexity due to the memory used by the call stack.
+
+3. Time Complexity: 
+Time complexity quantifies the amount of time an algorithm takes to run, as a function of its input size, typically 
+represented using Big O notation(e.g O(n), O(n log n), O(n^2))
+
+How it works:
+It counts the number of elementary operations an algorithm performs, not the actual execution time in milliseconds 
+which can vary largely by hardware and programming language. 
+
+Time complexity helps predict how an algorithm will scale for large inputs and compare the efficiency of different 
+algorithms for the same problem.
+Example:
+A linear search has O(n) time complexity because, in the worst case, it must check every element in a list of size n.
+
+Time complexity analysis of stack.
+1. push()
+  i Arrays:
+  In the push function, a single function is inserted at the last position. This takes a single memory allocation
+  operation which is done in constant time O(1).
+  ii Linked Lists:
+  Only a new node is created and the pointer of the last node is updated. This includes only memory allocation operations.
+  Hence, insertion is done in constant time O(1)
+
+2. pop()
+  i Arrays:
+  In array implementation, only an arithmetic operation is performed i.e. the top pointer is decremented by 1. This is a constant 
+  time function, O(1).
+  ii Linked List:
+  Only the first node is deleted and the top pointer is updated. This is a constant time operation, O(1).
+
+3. peek()
+  i Arrays:
+    Only a memory address is accessed. This is a constant time operation, O(1).
+  ii Linked List:
+  In Linked List implementation, a single memory address is accessed. It takes constant time, O(1).
+
+4. isEmpty()
+  i Arrays:
+  It only performs an arithmetic operation to check if the stack is empty or not. It takes constant time, O(1).
+  ii Linked List:
+  It checks if the top pointer is Null or not. This operation takes constant time, O(1)
+
+5. size()
+  i Arrays:
+  O(1) because it just performs basic arithmetic operations.
+  ii Linked List:
+  O(1)- the size is calculated and updated every time a push or pop operation is performed and is just returned in this 
+  function 
+
+6. search()
+  Linear search:
+  O(n) because it requires iterating through all the elements in the worst case to find the desired item.
+
+  Binary Search:
+  O(log n) because it involves halving the search space until the target element is found or the search interval becomes empty.
+  The search terminates when the search space is effectively reduced to a single element (or the element is not found).
+  This means n/2^k ≈ 1, or 2^k ≈ n. Solving for 'k', we get k ≈ log₂(n).
